@@ -16,7 +16,7 @@ const Sidebar = () => {
         <nav className="mt-8">
           <h3 className="text-sm">A</h3>
           <div className="mt-2 -m-3">
-            <a href="#" className="flex justify-between items-center px-3">
+            <a href="#" className="flex justify-between items-center bg-gradient-to-r from-purple-700 to-blue-500 rounded-md px-3">
               <span>Home</span>
               <span>Dashboard</span>
             </a>
