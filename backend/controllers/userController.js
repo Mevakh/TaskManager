@@ -29,9 +29,9 @@ exports.getUserById = async (req, res) => {
 exports.updateUserById = async (req, res) => {
   try {
     const userId = req.params.id;
-    const { username, email, password } = req.body;
+    const { email, password } = req.body;
 
-    const updatedUser = await Users.findByIdAndUpdate(userId, { username, email, password }, { new: true });
+    const updatedUser = await Users.findByIdAndUpdate(userId, { email, password }, { new: true });
 
     if (!updatedUser) {
       return res.status(404).json({ message: 'Kullanıcı bulunamadı' });

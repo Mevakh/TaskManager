@@ -1,10 +1,16 @@
 import { useState } from "react";
 import React from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const sendSubmit = () => {
+    navigate("/");
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,6 +23,7 @@ const Login = () => {
       });
 
       console.log(response.data);
+      sendSubmit()
     } catch (error) {
       console.error("API çağrısı sırasında hata oluştu:", error);
     }

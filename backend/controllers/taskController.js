@@ -1,10 +1,10 @@
 const Task = require('../models/task')
 
-exports.taskControls = async (req, res) => {
+exports.addTask = async (req, res) => {
     try {
-      const{description} = req.body
+      const{description, status} = req.body
   
-      const newTask = new Task({description})
+      const newTask = new Task({description, status})
       await newTask.save();
   
       res.status(201).json({message: 'Task kaydedildi'})
@@ -23,6 +23,40 @@ exports.getTask = async (req,res) =>{
       res.status(500).json({message:'bir'})
    }
 }
+
+exports.getTaskById = async (req, res) => {
+  try {
+    const taskId = req.params.id;
+    const task = await Task.findById(taskId);
+
+    if (!task) {
+      return res.status(404).json({ message: 'Kullanıcı bulunamadı' });
+    }
+
+    res.json(task);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Bir hata oluştu' });
+  }
+};
+
+exports.updateTaskById = async (req, res) => {
+  try {
+    const taskId = req.params.id;
+    const { description, status } = req.body;
+
+    const taskUser = await Task.findByIdAndUpdate(taskId, { description, status }, { new: true });
+
+    if (!taskUser) {
+      return res.status(404).json({ message: 'Kullanıcı bulunamadı' });
+    }
+
+    res.json(updatedTask);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Bir hata oluştu' });
+  }
+};
 
 exports.deleteTaskById = async (req, res) => {
   try {
