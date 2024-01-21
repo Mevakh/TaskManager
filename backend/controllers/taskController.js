@@ -51,7 +51,7 @@ exports.updateTaskById = async (req, res) => {
       return res.status(404).json({ message: 'Kullanıcı bulunamadı' });
     }
 
-    res.json(updatedTask);
+    res.json(taskUser);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Bir hata oluştu' });

@@ -15,7 +15,7 @@ const Home = () => {
   const fetchData = () => {
     axios
       .get("http://localhost:3000/tasks")
-      .then((response) => setTasks(response.data))
+      .then((response) => setTask(response.data))
       .catch((error) => console.error(error));
   };
 
