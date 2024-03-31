@@ -1,8 +1,7 @@
-// src/components/Slider.js
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "./Sidebar.css"; // Slider için özel stiller
+import "./Sidebar.css";
 
 const Sidebar = () => {
   const logo =
@@ -16,14 +15,17 @@ const Sidebar = () => {
         <nav className="mt-8">
           <h3 className="text-sm">A</h3>
           <div className="mt-2 -m-3">
-            <a href="#" className="flex justify-between items-center bg-gradient-to-r from-purple-700 to-blue-500 rounded-md px-3">
+            <a
+              href="#"
+              className="flex justify-between items-center bg-gradient-to-r from-purple-700 to-blue-500 rounded-md px-3"
+            >
               <span>Home</span>
+
               <span>Dashboard</span>
             </a>
           </div>
         </nav>
       </div>
-
       <div className="flex-1 min-w-0">C</div>
     </div>
   );

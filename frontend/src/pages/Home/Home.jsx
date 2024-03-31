@@ -2,80 +2,31 @@ import { React, useState, useEffect } from "react";
 import axios from "axios";
 
 const Home = () => {
-  const [tasks, setTask] = useState([]);
-  const [editTask, setEditTask] = useState({ _id: "", description: "" });
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:3000/tasks")
-      .then((response) => setTask(response.data))
-      .catch((error) => console.error(error));
-  }, [tasks]);
-
-  const fetchData = () => {
-    axios
-      .get("http://localhost:3000/tasks")
-      .then((response) => setTask(response.data))
-      .catch((error) => console.error(error));
-  };
-
-  const handleEdit = (taskId, description) => {
-    setEditTask({ _id: taskId, description });
-  };
-
-  const handleSubmitEdit = () => {
-    axios
-      .put(`http://localhost:3000/task/${editTask._id}`, {
-        description: editTask.description,
-      })
-      .then((response) => {
-        console.log("Task updated successfully");
-        setEditTask({ _id: "", description: "" }); // Düzenleme formunu sıfırla
-        fetchData(); // Yeniden veriyi çekmek için
-      })
-      .catch((error) => console.error(error));
-  };
-
-  const handleDelete = (taskId) => {
-    axios
-      .delete(`http://localhost:3000/task/${taskId}`)
-      .then((response) => {
-        console.log("Task deleted successfully");
-        fetchData(); // Yeniden veriyi çekmek için
-      })
-      .catch((error) => console.error(error));
-  };
-
   return (
     <div>
-      <h1>Items</h1>
-      <ul>
-        {tasks.map((task) => (
-          <li key={task._id}>
-            <h3>{task.description}</h3>
-            <div>
-              <h3>{task.status}</h3>
-            </div>
-            <button onClick={() => handleDelete(task._id)}>Delete</button>
-            <button onClick={() => handleEdit(task._id, task.description)}>
-              Edit
-            </button>
-          </li>
-        ))}
-      </ul>
-      {editTask._id && (
-        <div>
-          <h2>Edit Task</h2>
-          <input
-            type="text"
-            value={editTask.description}
-            onChange={(e) =>
-              setEditTask({ ...editTask, description: e.target.value })
-            }
-          />
-          <button onClick={handleSubmitEdit}>Save</button>
+      <nav class="border-gray-200 dark:bg-gray-900 dark:border-gray-700 border-b-2">
+        <div className="max-w-screen flex flex-wrap items-center justify-between mx-auto p-4">
+          <a>
+            <span className="text-2xl">Task Manager</span>
+          </a>
+          <div className="">
+            <ul className="flex flex-wrap justify-between gap-4 mr-6">
+              <li className="border p-2">
+                <a href="">Sign In</a>
+              </li>
+              <li className="border p-2">
+                <a href="">Register</a>
+              </li>
+            </ul>
+          </div>
         </div>
-      )}
+      </nav>
+      <div>
+        <div className="flex">
+         <h1>Task</h1>
+         <div></div>
+        </div>
+      </div>
     </div>
   );
 };
