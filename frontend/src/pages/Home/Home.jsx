@@ -12,23 +12,37 @@ const Home = () => {
           <div className="">
             <ul className="flex flex-wrap justify-between gap-4 mr-6">
               <li className="border p-2">
-                <a href="">Sign In</a>
+                <a href="/login">Sign In</a>
               </li>
               <li className="border p-2">
-                <a href="">Register</a>
+                <a href="/register">Register</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
-       <div className="bg-gray-200 auto-w auto-h pt-3 p-5">
-        <div className="flex flex-wrap gap-5 ml-5 mt-5">
-          <div className="border border-black bg-white p-2">Bugün hiçbir şey yemeğeceğim</div>
-          <div className="border border-black bg-white p-2 w-12 h-"><img className="rounded-full" src="https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg" alt="Semih Yılmaz" /></div>
-          <div className="border border-black bg-white p-2">STATUS</div>
+      <div className="bg-gray-200 auto-w auto-h pt-3 p-5">
+        <div className="flex justify-end mr-10 mt-3">
+          <button>+</button>
         </div>
-       </div>
-       
+        <div className="flex flex-wrap gap-5 ml-5 mt-5 justify-center">
+          <div className="border border-black bg-white p-2">
+            Bugün hiçbir şey yemeğeceğim
+          </div>
+          <div className="border border-black bg-white p-2 w-12 h-">
+            <img
+              className="rounded-full"
+              src="https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
+              alt="Semih Yılmaz"
+            />
+          </div>
+          <div className="border border-black bg-white p-2">STATUS</div>
+          <div className="flex items-center gap-3">
+            <div>düzeltme</div>
+            <div>silme</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
