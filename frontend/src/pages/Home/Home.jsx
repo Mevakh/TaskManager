@@ -1,7 +1,9 @@
 import { React, useState, useEffect } from "react";
+import Popup from "../../components/Popup/Popup";
 import axios from "axios";
 
 const Home = () => {
+  const [showModal, setShowModal] = useState(false);
   return (
     <div>
       <nav class="border-black dark:bg-gray-900 dark:border-gray-700 border-b-2">
@@ -23,7 +25,8 @@ const Home = () => {
       </nav>
       <div className="bg-gray-200 auto-w auto-h pt-3 p-5">
         <div className="flex justify-end mr-10 mt-3">
-          <button>+</button>
+          <button onClick={() => setShowModal(true)}>+</button>
+          {showModal && <Popup />}
         </div>
         <div className="flex flex-wrap gap-5 ml-5 mt-5 justify-center">
           <div className="border border-black bg-white p-2">
